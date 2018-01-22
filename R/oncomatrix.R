@@ -1,10 +1,10 @@
-createOncoMatrix = function(m, g = NULL, chatty = TRUE){
+createOncoMatrix = function(m, g = NULL, chatty = TRUE, includeSyn = FALSE){
 
   if(is.null(g)){
     stop("Please provde atleast two genes!")
   }
-
-  subMaf = subsetMaf(maf = m, genes = g, includeSyn = FALSE)
+  #pass this option from function call
+  subMaf = subsetMaf(maf = m, genes = g, includeSyn = includeSyn)
 
   if(nrow(subMaf) == 0){
     return(NULL)
